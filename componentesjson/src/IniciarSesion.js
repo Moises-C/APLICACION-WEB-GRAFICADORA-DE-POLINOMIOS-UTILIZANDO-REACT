@@ -30,16 +30,13 @@ export default class IniciarSesion extends Component {
 
     
     iniciarSesion() {
-            alert(`Prueba de fúncion..`)
             console.log(this.state.data);
             fetch(`http://localhost:8080/Prueba/login?nombre=${this.state.data.username}&password=${this.state.data.password}`)
             .then((response) => {
-               alert('1er return')
                 return response.json()
             })
 
             .then((dat) => {    
-              alert('2do return')
                 if(dat.length>0){
                     const respuesta = dat[0];
                     this.setState({...this.state.data,acceder:true});
